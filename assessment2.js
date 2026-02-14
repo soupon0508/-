@@ -2,6 +2,7 @@ const input = document.getElementById('user-name');
 const button = document.getElementById('button');
 const header = document.getElementById('header');
 const result = document.getElementById('result');
+const tweetButton = document.getElementById('tweet-area');
 
 const answer = [
   '🌟 大吉！願っていたことに近づけるチャンスの日。自信を持って動こう。',
@@ -15,7 +16,7 @@ const answer = [
 
 const time = Date.now();
 const dateToday = Math.floor(time / 1000 / 60 / 60 / 24);
-console.log(dateToday);
+
 function inputEnd() {
   while (result.firstChild) {
     result.removeChild(result.firstChild);
@@ -23,8 +24,13 @@ function inputEnd() {
   while (header.firstChild) {
     header.removeChild(header.firstChild);
   }
+  while (tweetButton.firstChild) {
+    tweetButton.removeChild(tweetButton.firstChild);
+  }
+  
   const username = input.value
   let number = 0;
+
   if (username.length === 0) {
     return;
   };
@@ -41,7 +47,20 @@ function inputEnd() {
   const underTitle = document.createElement('p');
   underTitle.innerText = end
   result.appendChild(underTitle)
-}
+
+  const tweetArea = document.createElement('a');
+  tweetArea.setAttribute('href', "https://twitter.com/intent/tweet?button_hashtag=わたしの今日の運勢🤔&ref_src=twsrc%5Etfw");
+  tweetArea.setAttribute('class', "twitter-hashtag-button");
+  tweetArea.setAttribute('data-show-count', "false");
+  tweetArea.innerText = 'Tweet #わたしの今日の運勢🤔';
+  tweetButton.appendChild(tweetArea);
+
+  const script = document.createElement('script');
+  script.setAttribute('async', '');
+  script.setAttribute('src', "https://platform.twitter.com/widgets.js");
+  script.setAttribute('charset', "utf-8");
+  tweetButton.appendChild(script)
+};
 
 button.addEventListener(
   'click',
