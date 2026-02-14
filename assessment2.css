@@ -1,0 +1,43 @@
+html, body {
+  height: 100%;
+  margin: 3px;
+  border-radius: 20px;
+}
+body {
+  background-color: rgb(172, 218, 240);
+  text-align: center;
+  font-size: x-large;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+
+input {
+  border: 1px solid black;
+  width: 300px;
+  height:23px;
+  border-radius: 10px;
+  font-size: large;
+}
+button {
+  background-color: #7effc5;
+  border-radius: 20px;
+  font-size: large;
+}
+button:hover {
+  background-color: rgb(255, 76, 213);
+}
+button:active {
+  transform: scale(0.95);
+}
+@keyframes colorChange {
+  0% {color: red;}
+  25% {color: green;}
+  50% {color: blue;}
+  75% {color: purple;}
+  100% {color: red;}
+}
+.username {animation: colorChange 1s infinite linear;}
+
+#header {
+  font-size: small;
+}
